@@ -81,7 +81,7 @@ document.querySelectorAll('.video-player').forEach((player) => {
   });
 });
 
-const equalHeightGrids = document.querySelectorAll('.project-list, .project-media-grid, .people-grid, .logo-grid, .gallery, .character-grid, .sexilio-grid');
+const equalHeightGrids = document.querySelectorAll('.project-media-grid, .people-grid, .logo-grid, .gallery, .character-grid, .sexilio-grid');
 
 function equalizeGridImages(grid) {
   const images = [...grid.querySelectorAll('img')].filter((img) => img.complete && img.naturalWidth > 0);

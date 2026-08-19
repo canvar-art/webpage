@@ -120,16 +120,16 @@ button { font: inherit; }
 .filter-status { margin-left: auto; color: var(--muted); font-size: .72rem; text-transform: uppercase; letter-spacing: .12em; }
 
 .project-list { margin: 2rem var(--pad) 8rem; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1rem, 2.4vw, 2.5rem); }
-.project-card { min-width: 0; position: relative; display: block; align-self: start; overflow: hidden; background: #111; isolation: isolate; }
+.project-card { min-width: 0; position: relative; display: block; align-self: start; overflow: hidden; background: transparent; isolation: isolate; }
 .project-card.reveal { opacity: 1; transform: none; }
 .project-card[hidden] { display: none !important; }
 .project-info { position: absolute; inset: 0; z-index: 2; padding: clamp(1.25rem, 3vw, 3rem); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: #fff; transition: transform .35s ease; }
 .project-info .index-no { display: block; margin-bottom: .8rem; color: rgba(255,255,255,.7); }
 .project-card h2 { margin: 0; font-size: var(--type-card-title); line-height: 1; text-transform: uppercase; letter-spacing: -.035em; font-weight: 500; }
-.project-thumb { position: relative; width: 100%; background: #111; }
+.project-thumb { position: relative; width: 100%; background: transparent; }
 .project-thumb::after { content: ""; position: absolute; inset: 0; background: rgba(0, 0, 0, .34); transition: background .35s ease; }
-.project-thumb img { width: 100%; height: var(--equal-grid-height, auto); object-fit: contain; }
-.project-list .project-thumb { height: var(--equal-grid-height, auto); }
+.project-thumb img { width: 100%; height: auto; object-fit: contain; }
+.project-list .project-thumb { height: auto; }
 .project-card .meta { color: rgba(255,255,255,.78); margin-top: .75rem; }
 .project-action { margin-top: 1.4rem; font-size: .65rem; line-height: 1; text-transform: uppercase; letter-spacing: .14em; opacity: .7; }
 .project-card[href] .project-action { opacity: 1; }
@@ -349,14 +349,29 @@ button { font: inherit; }
 
 /* SEXILIO page-specific proportions */
 .project-page main { text-align: center; }
-.project-page .section { padding-block: clamp(1.25rem, 2vw, 2rem); }
+.project-page .section { padding-block: clamp(.85rem, 1.4vw, 1.35rem); }
 .project-page main :is(.prose, .section-title, .project-title, .project-deck) { margin-inline: auto; }
-.project-page .section-title {
-  font-size: clamp(1.6rem, 2.6vw, 2.7rem);
-  line-height: .95;
-  letter-spacing: -.045em;
+.project-page main :is(h1, h2, h3) {
+  font-family: var(--display);
+  font-weight: 500;
+  text-transform: uppercase;
 }
-.project-page .section-head { grid-template-columns: 1fr; margin-bottom: clamp(1rem, 1.8vw, 1.75rem); }
+.project-page main h1 {
+  font-size: var(--type-project-title);
+  line-height: .9;
+  letter-spacing: -.055em;
+}
+.project-page main h2 {
+  font-size: clamp(1.6rem, 2.6vw, 2.7rem);
+  line-height: 1;
+  letter-spacing: -.04em;
+}
+.project-page main h3 {
+  font-size: clamp(1.15rem, 1.7vw, 1.65rem);
+  line-height: 1.08;
+  letter-spacing: -.025em;
+}
+.project-page .section-head { grid-template-columns: 1fr; margin-bottom: clamp(.75rem, 1.2vw, 1.2rem); }
 .project-page .credit-item { align-items: center; text-align: center; }
 .project-page .platform-list { justify-content: center; }
 .sexilio-page .sexilio-crowdfunding > div { flex: 1 1 auto; }
@@ -389,6 +404,68 @@ button { font: inherit; }
   height: auto;
 }
 .project-page .character-grid { border: 0; }
+.project-page .character-grid--stacked {
+  width: min(80%, 72rem);
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+}
+.project-page .character-grid--stacked .character {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+  padding-block: clamp(2rem, 4vw, 4rem);
+  border-top: 1px solid var(--line);
+}
+.project-page .character-grid--stacked .character:last-child {
+  border-bottom: 1px solid var(--line);
+}
+.project-page .character-grid--stacked .character:first-child img {
+  order: 2;
+}
+.project-page .character-grid--stacked .character:first-child > div {
+  order: 1;
+}
+.project-page .character-grid--stacked .character > div {
+  align-self: center;
+  text-align: center;
+}
+.project-page .character-grid--stacked .character h3 {
+  margin-inline: auto;
+}
+.project-page .character-grid--stacked .character img {
+  height: auto;
+  max-height: 32rem;
+  object-fit: contain;
+  justify-self: center;
+}
+.project-page .qdlo-video {
+  margin-top: clamp(1.5rem, 3vw, 3rem);
+}
+.project-page .qdlo-intro {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  width: 80%;
+  margin-inline: auto;
+  gap: clamp(1.5rem, 4vw, 4rem);
+}
+.project-page .qdlo-intro .prose,
+.project-page .qdlo-intro .qdlo-video {
+  width: 100%;
+  margin: 0;
+}
+.project-page .qdlo-donate {
+  margin-top: clamp(1rem, 2vw, 1.75rem);
+}
+.project-page .qdlo-partners {
+  width: 100%;
+  margin-inline: 0;
+}
+.project-page .qdlo-partners img {
+  width: 100%;
+  max-height: none;
+  height: auto;
+}
 .project-page .sexilio-banner img { width: 100%; }
 .project-page .sexilio-story { align-items: stretch; }
 .project-page .sexilio-opening { align-items: center; }
@@ -573,6 +650,17 @@ button { font: inherit; }
   .project-page:not(.sexilio-page) .image-hero { height: auto; aspect-ratio: 16 / 9; }
   .project-page:not(.sexilio-page) .character-grid { --equal-grid-height: auto !important; }
   .project-page:not(.sexilio-page) .character img { height: min(65svh, 32rem); }
+  .project-page .character-grid--stacked { width: 100%; }
+  .project-page .character-grid--stacked .character {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+  }
+  .project-page .character-grid--stacked .character img { height: auto; }
+  .project-page .qdlo-intro {
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    gap: 1.5rem;
+  }
   .project-page .sexilio-opening .sexilio-feature-image { height: auto; aspect-ratio: 3 / 2; }
   .project-page .sexilio-story .video-player { aspect-ratio: 16 / 9; }
   .project-recommendations-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
