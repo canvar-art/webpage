@@ -174,6 +174,7 @@ button { font: inherit; }
 .credit-item dd { margin: 1rem 0 0; font-size: 1.05rem; }
 .logo-grid { display: flex; gap: 1px; align-items: stretch; overflow: visible; background: transparent; }
 .logo-grid figure { flex: 1 1 0; min-width: 0; margin: 0; padding: clamp(.8rem, 1.8vw, 1.8rem); background: transparent; display: flex; align-items: center; justify-content: center; }
+.partner-logo-link { display: flex; width: 100%; height: 100%; align-items: center; justify-content: center; }
 .logo-grid img { width: 100%; height: var(--equal-grid-height, auto); object-fit: contain; }
 .project-separator { padding: 2rem var(--pad); display: flex; justify-content: center; }
 .project-separator img { width: min(11rem, 38vw); }
@@ -220,10 +221,20 @@ button { font: inherit; }
 .logo-row img { flex: 0 1 260px; min-width: 0; max-width: min(260px, 36vw); max-height: 130px; object-fit: contain; }
 
 /* SEXILIO */
-.sexilio-page { --hero-image-height: 18rem; }
+.sexilio-page {
+  --hero-image-height: 18rem;
+  /* Manual SEXILIO tuning controls. */
+  --support-video-width: 110%;
+  --rct-logo-scale: 3;
+  --split-section-width: 80%;
+}
 .sexilio-banner { padding-top: 5.25rem; border-bottom: 1px solid var(--line); background: #111; }
 .sexilio-banner img { width: 100%; height: auto; }
 .sexilio-opening, .sexilio-story, .sexilio-team, .sexilio-support { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1.5rem, 4vw, 4rem); align-items: center; }
+.sexilio-page :is(.sexilio-opening, .sexilio-story, .sexilio-support) {
+  width: var(--split-section-width);
+  margin-inline: auto;
+}
 .sexilio-feature-image { margin: 0; min-width: 0; background: transparent; }
 .sexilio-feature-image img { width: 100%; height: auto; }
 .sexilio-crowdfunding { display: flex; align-items: end; justify-content: space-between; gap: 2rem; border-block: 1px solid var(--line); }
@@ -236,10 +247,55 @@ button { font: inherit; }
 .sexilio-grid figure { height: var(--equal-grid-height, auto); min-width: 0; margin: 0; overflow: hidden; background: #111; }
 .sexilio-grid img { width: 100%; height: var(--equal-grid-height, auto); object-fit: contain; }
 .sexilio-logos { max-width: 48rem; margin-inline: auto; }
-.sexilio-team { align-items: stretch; }
+.project-page.sexilio-page .sexilio-team-section {
+  padding-block: clamp(1rem, 1.5vw, 1.5rem);
+}
+.sexilio-team-section > .section-title {
+  margin-bottom: clamp(1rem, 1.8vw, 1.75rem);
+}
+.sexilio-page .sexilio-team {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: clamp(1rem, 2.5vw, 2.25rem);
+  max-width: 64rem;
+  margin-inline: auto;
+}
+.sexilio-page .sexilio-team .credit-item {
+  display: block;
+  flex: 0 1 13rem;
+  min-height: 0;
+  padding: 0;
+  background: transparent;
+  text-align: center;
+}
+.sexilio-page .sexilio-team .credit-item dt {
+  margin-bottom: .45rem;
+}
+.sexilio-page .sexilio-team .credit-item dd {
+  margin: .15rem 0;
+  font-size: 1rem;
+}
 .sexilio-credits { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.sexilio-widget { min-height: 450px; display: grid; place-items: center; overflow: hidden; background: var(--paper); }
-.sexilio-widget iframe { display: block; width: 100%; height: 450px; border: 0; }
+.sexilio-widget {
+  min-height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+  align-self: center;
+  overflow: hidden;
+  background: transparent;
+}
+.sexilio-widget iframe {
+  display: block;
+  width: 100%;
+  height: 350px;
+  margin: auto;
+  border: 0;
+  background: transparent;
+}
 
 /* Project media is intentionally compact on larger screens. */
 .project-page .image-hero {
@@ -295,7 +351,11 @@ button { font: inherit; }
 .project-page main { text-align: center; }
 .project-page .section { padding-block: clamp(1.25rem, 2vw, 2rem); }
 .project-page main :is(.prose, .section-title, .project-title, .project-deck) { margin-inline: auto; }
-.project-page .section-title { font-size: clamp(1.6rem, 2.6vw, 2.7rem); line-height: .95; letter-spacing: -.045em; }
+.project-page .section-title {
+  font-size: clamp(1.6rem, 2.6vw, 2.7rem);
+  line-height: .95;
+  letter-spacing: -.045em;
+}
 .project-page .section-head { grid-template-columns: 1fr; margin-bottom: clamp(1rem, 1.8vw, 1.75rem); }
 .project-page .credit-item { align-items: center; text-align: center; }
 .project-page .platform-list { justify-content: center; }
@@ -307,6 +367,26 @@ button { font: inherit; }
 }
 .project-page :is(.project-media-grid figure, .person-card, .character, .gallery figure, .sexilio-grid figure) {
   background: transparent;
+}
+.project-page .sexilio-grid--collage {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(.35rem, .7vw, .7rem);
+}
+.project-page .sexilio-grid--collage .sexilio-grid-row {
+  display: grid;
+  gap: clamp(.35rem, .7vw, .7rem);
+  align-items: start;
+}
+.project-page .sexilio-grid--collage .sexilio-grid-row:first-child {
+  grid-template-columns: .929fr 1.5fr 1.093fr;
+}
+.project-page .sexilio-grid--collage .sexilio-grid-row:last-child {
+  grid-template-columns: 1.5fr 1.964fr .779fr;
+}
+.project-page .sexilio-grid--collage :is(figure, img) {
+  width: 100%;
+  height: auto;
 }
 .project-page .character-grid { border: 0; }
 .project-page .sexilio-banner img { width: 100%; }
@@ -336,6 +416,18 @@ button { font: inherit; }
 .project-page .sexilio-story .video-player > img { object-fit: contain; }
 .project-page .sexilio-story .video-player::after,
 .project-page .sexilio-story .video-player:hover::after { background: transparent; }
+.sexilio-page .sexilio-support > :first-child {
+  width: var(--support-video-width);
+  margin-inline: auto;
+  justify-self: center;
+  align-self: center;
+}
+.sexilio-page img[src$="logo-rct.png"] {
+  position: relative;
+  z-index: 1;
+  transform: scale(var(--rct-logo-scale));
+  transform-origin: center;
+}
 
 .feature-stack { display: grid; gap: 1px; background: var(--line); border-block: 1px solid var(--line); }
 .residency-intro { display: grid; grid-template-columns: minmax(18rem, .8fr) minmax(0, 1.2fr); gap: clamp(2.5rem, 7vw, 7rem); align-items: start; }
@@ -359,6 +451,62 @@ button { font: inherit; }
 .site-footer { padding: 2.5rem var(--pad) 1.5rem; border-top: 1px solid var(--line); }
 .footer-mark { font-family: var(--display); font-size: var(--type-footer); line-height: .9; letter-spacing: -.055em; text-transform: uppercase; }
 .footer-row { margin-top: 2rem; display: flex; justify-content: space-between; gap: 2rem; color: var(--muted); font-size: .72rem; text-transform: uppercase; letter-spacing: .12em; }
+.project-footer {
+  padding: clamp(3rem, 6vw, 6rem) var(--pad) 1.5rem;
+}
+.project-recommendations-title {
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  margin: 0 0 clamp(2rem, 4vw, 4rem);
+  padding: .65rem .85rem .55rem;
+  color: var(--ink);
+  background: var(--acid);
+  font-family: var(--display);
+  font-size: clamp(.9rem, 1.25vw, 1.2rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+}
+.project-recommendations-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  align-items: center;
+  gap: clamp(1rem, 3vw, 4rem);
+}
+.project-recommendation {
+  display: block;
+  min-width: 0;
+  transition: opacity .25s ease, transform .25s ease;
+}
+.project-recommendation:hover,
+.project-recommendation:focus-visible {
+  opacity: .72;
+  transform: translateY(-4px);
+}
+.project-recommendation:focus-visible {
+  outline: 2px solid var(--acid);
+  outline-offset: 5px;
+}
+.project-recommendation-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: transparent;
+}
+.project-recommendation-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.project-footer-mark {
+  display: block;
+  margin-top: clamp(4rem, 9vw, 9rem);
+}
 .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s ease; }
 .reveal.is-visible { opacity: 1; transform: none; }
 .project-page:not(.sexilio-page) .reveal { opacity: 1; transform: none; }
@@ -388,6 +536,18 @@ button { font: inherit; }
   .credit-grid { display: grid; grid-template-columns: 1fr; overflow: visible; }
   .logo-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; }
   .logo-grid figure { padding: .75rem; }
+  .project-page.sexilio-page .sexilio-logos {
+    grid-template-columns: minmax(0, 1fr);
+    width: min(100%, 28rem);
+    gap: clamp(1.5rem, 6vw, 3rem);
+    margin-inline: auto;
+  }
+  .sexilio-page .sexilio-logos img {
+    height: auto;
+  }
+  .sexilio-page .sexilio-logos img[src$="logo-rct.png"] {
+    transform: none;
+  }
   .character-grid, .feature { grid-template-columns: 1fr; }
   .page-hero--compact { min-height: 38svh; }
   .residency-intro { grid-template-columns: 1fr; }
@@ -398,6 +558,7 @@ button { font: inherit; }
   .gallery { gap: .75rem; }
   .gallery figure { grid-column: span 12 !important; }
   .sexilio-opening, .sexilio-story, .sexilio-team, .sexilio-support { grid-template-columns: 1fr; }
+  .sexilio-page :is(.sexilio-opening, .sexilio-story, .sexilio-support) { width: 100%; }
   .sexilio-crowdfunding { align-items: flex-start; flex-direction: column; }
   .sexilio-grid--three, .sexilio-grid--two, .sexilio-credits { grid-template-columns: 1fr; }
   .project-page .image-hero {
@@ -414,6 +575,8 @@ button { font: inherit; }
   .project-page:not(.sexilio-page) .character img { height: min(65svh, 32rem); }
   .project-page .sexilio-opening .sexilio-feature-image { height: auto; aspect-ratio: 3 / 2; }
   .project-page .sexilio-story .video-player { aspect-ratio: 16 / 9; }
+  .project-recommendations-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .project-footer-mark { margin-top: 4rem; }
 }
 
 @media (hover: none) {

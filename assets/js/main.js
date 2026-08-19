@@ -117,3 +117,67 @@ window.addEventListener('resize', () => {
   cancelAnimationFrame(gridResizeFrame);
   gridResizeFrame = requestAnimationFrame(equalizeAllGridImages);
 });
+
+const projectFooter = document.querySelector('.project-page .site-footer');
+
+if (projectFooter) {
+  const projects = [
+    { page: 'project-qdlo.html', title: '¿Quién dio la orden?', image: 'assets/images/projects/index/quien-dio-la-orden.jpg' },
+    { page: 'project-sexilio.html', title: 'SEXILIO', image: 'assets/images/projects/index/sexilio.jpeg' },
+    { page: 'project-paramoverso.html', title: 'Paramoverso', image: 'assets/images/projects/index/paramoverso.jpeg' },
+    { page: 'project-camino-cimarron.html', title: 'El Camino Cimarrón', image: 'assets/images/projects/index/camino-cimarron.png' },
+    { page: 'project-colombia-resiste.html', title: 'Colombia Resiste 360', image: 'assets/images/projects/index/colombia-resiste-360.png' },
+    { page: 'project-continuum-vr.html', title: 'Continuum VR', image: 'assets/images/projects/index/continuum-vr.png' },
+    { page: 'project-les-danses-extatiques.html', title: 'Les Danses Extatiques', image: 'assets/images/projects/index/les-danses-extatiques.jpg' },
+    { page: 'project-mountain-museum.html', title: 'Mountain Museum', image: 'assets/images/projects/index/mountain-museum.png' }
+  ];
+  const currentPage = decodeURIComponent(window.location.pathname).split('/').pop().toLowerCase();
+  const currentIndex = projects.findIndex((project) => project.page === currentPage);
+  const orderedProjects = currentIndex >= 0
+    ? [...projects.slice(currentIndex + 1), ...projects.slice(0, currentIndex)]
+    : projects;
+  const recommendations = orderedProjects.slice(0, 5);
+
+  projectFooter.classList.add('project-footer');
+  projectFooter.replaceChildren();
+
+  const heading = document.createElement('h2');
+  heading.className = 'project-recommendations-title';
+  heading.textContent = 'You may also like';
+
+  const grid = document.createElement('div');
+  grid.className = 'project-recommendations-grid';
+  recommendations.forEach((project) => {
+    const link = document.createElement('a');
+    link.className = 'project-recommendation';
+    link.href = project.page;
+    link.setAttribute('aria-label', `View ${project.title}`);
+
+    const media = document.createElement('span');
+    media.className = 'project-recommendation-media';
+    const image = document.createElement('img');
+    image.src = project.image;
+    image.alt = project.title;
+    image.loading = 'lazy';
+    media.appendChild(image);
+    link.appendChild(media);
+    grid.appendChild(link);
+  });
+
+  const home = document.createElement('a');
+  home.className = 'footer-mark project-footer-mark';
+  home.href = 'index.html';
+  home.textContent = 'CANVAR';
+  home.setAttribute('aria-label', 'CANVAR home');
+
+  const footerRow = document.createElement('div');
+  footerRow.className = 'footer-row';
+  const allProjects = document.createElement('a');
+  allProjects.href = 'projects.html';
+  allProjects.textContent = '← All projects';
+  const copyright = document.createElement('span');
+  copyright.textContent = `© ${new Date().getFullYear()}`;
+  footerRow.append(allProjects, copyright);
+
+  projectFooter.append(heading, grid, home, footerRow);
+}
