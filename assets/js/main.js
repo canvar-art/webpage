@@ -122,7 +122,7 @@ const projectFooter = document.querySelector('.project-page .site-footer');
 
 if (projectFooter) {
   const projects = [
-    { page: 'project-qdlo.html', title: '¿Quién dio la orden?', image: 'assets/images/projects/index/quien-dio-la-orden.jpg' },
+    { page: 'project-qdlo.html', title: '¿Quién dio la orden?', image: 'assets/images/projects/index/quien-dio-la-orden-generated.png' },
     { page: 'project-sexilio.html', title: 'SEXILIO', image: 'assets/images/projects/index/sexilio.jpeg' },
     { page: 'project-paramoverso.html', title: 'Paramoverso', image: 'assets/images/projects/index/paramoverso.jpeg' },
     { page: 'project-camino-cimarron.html', title: 'El Camino Cimarrón', image: 'assets/images/projects/index/camino-cimarron.png' },
