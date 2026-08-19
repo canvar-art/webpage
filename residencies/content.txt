@@ -1,0 +1,37 @@
+hero-image-recidencies.png
+
+
+## What is Artivistas, The Lab (2025)?
+LeLab is a new digital-art laboratory launched in 2025 — a space dedicated to creation, experimentation, training, and critical reflection around immersive arts, virtual reality, and emerging technologies.
+Designed as an open, collaborative hub, LeLab brings together artists, researchers, students, technologists, and cultural workers from Latin America, Europe, and beyond.
+Its mission is simple: to support digital creation and to nurture new artistic voices in immersive media.
+## A Celebration of Latin American Talent
+Based in a multicultural context, LeLab is also a platform to highlight:
+   - Latin American digital-art talent
+   - The innovation, diversity, and energy of artists from the region
+   - It aims to build a space where Latin American and European creators can meet,          exchange, and collaborate.
+
+## A Space for Creation & Innovation
+It is designed as a place where artists can produce, prototype, and experiment with new forms of digital storytelling.
+## Programs & Activities
+In 2025, CANVAR and Artivistas, launches LeLab an ambitious program including:
+🌍 International digital-artist residencies
+Welcoming creators from different countries to develop immersive and XR-based works.
+🎓 Professional training for our network of artists
+Workshops on immersive storytelling, digital creation, virtual and augmented reality tools, creative coding, and more.
+
+# Cohort 2025
+## Déjeme Aquí — Residency Project, 2025 Cohort
+dejeme-aqui-hero.png
+Déjeme Aquí, created by Colombian artist Laura Caraballo, is an immersive virtual-reality experience that explores the tension between personal consciousness, collective memory, and the urban history of Bogotá before the 2012 transformation of its transport system.
+The work invites participants to board a virtual bus inspired by the city’s iconic independent buses — once vibrant cultural capsules, now disappeared. Inside, visitors can move freely, interact with passengers, and navigate a narrative woven through original stories in English, French, and Spanish.
+The piece offers a sensorial journey into memories that continue to inhabit Bogotá’s streets and its people.
+This residency is supported through the collaboration between LeLab – Artivistas and CANVAR, joining forces to foster immersive works at the crossroads of art, technology, and cultural memory.
+Déjeme Aquí is part of the 2025 Artivistas Residency Cohort, highlighting innovative digital artists shaping the future of immersive storytelling.
+
+gan-hero-image.jpg
+## GAN – Generative Adversarial Nuisance — Residency Project, 2025 Cohort
+GAN – Generative Adversarial Nuisance, developed by artist Claudix Vanesix, is a critical and playful exploration of how artificial intelligence reshapes identity, representation, and our relationship with digital images. Through the misuse, disruption, and détournement of GAN-based systems, the project questions who controls visual culture in the age of machine learning — and what happens when an artist deliberately introduces “nuisance” into algorithmic logic.
+The work creates a speculative space where AI-generated bodies, faces, and gestures break down, glitch, and resist categorization. By exposing the aesthetics and biases embedded in generative models, the project invites audiences to reflect on authorship, gender fluidity, technological opacity, and the politics of visibility.
+Presented as an evolving artistic laboratory, GAN – Generative Adversarial Nuisance blends performance, digital fabrication, and synthetic media to reveal the tensions between human agency and algorithmic automation.
+

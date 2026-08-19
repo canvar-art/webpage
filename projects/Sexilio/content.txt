@@ -1,0 +1,43 @@
+banner
+section
+    hero image
+    SEXILIO is an immersive virtual reality experience that explores the emotional and physical journey of trans Latin American women migrants in Paris.
+    SEXILIO is a play on words—sexuality, identity, and exile—as the only possibility of being. From the initial fall into the Bois de Boulogne to the hidden worlds concealed within it, the user is drawn into the daily life of sex workers.
+
+section
+    div
+        Join the SEXILIO journey with our crowdfunding! 
+        Your contribution helps bring a trans and migrant archive to life.
+    div
+        buttono donate https://www.helloasso.com/associations/acceptess-t/collectes/fond-pour-la-creation-artistique-immersive-sexilio
+Section
+    div
+        As the experience unfolds, they must navigate through various environments and challenges that reveal the complexities of migration, sex work, discrimination, police violence, family struggles, and the ongoing quest for identity and community.
+        In this exercise of remembrance, through food, the body, and space, individual and collective memories are activated—transforming them into a living archive.
+        SEXILIO is an act of resistance and visibility.
+    div
+        video https://youtu.be/QYciNBsEV0w
+
+section # Methodology
+    Our creative process is based on co-creation through a series of collaborative workshops. These sessions bring together the protagonists and the artistic team to share experiences and build the narratives that shape the project.
+    grid1 3 pics per rows
+
+section
+    Each workshop fosters a space of care to explore memories of migration, identity, and belonging. Using artistic tools like writing, music, dance, photography, and theater, the participants create in their own unique ways
+    grid 3 per rows
+
+section
+    This collective process centers lived experience, allowing the work to emerge directly from the voices and stories of those who inhabit it.
+    grid 2 pics
+section # coprod
+    images logos
+
+section # project team
+    Directors:  Daniela MALDONADO SALAMANCA - Pascale ESPINOSa  - PaulX Gempeler
+    Photography: Juan david cortés  XR Producer: Andres BURBANO
+    Participants:
+    Chefo PACHECO - Lasmy Gaona - Luna CRUZ - Leticia ESPINOZA
+    team image
+section 
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/UfurRjYtrwM?si=L3siQQq7iQSJht4u" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <iframe id="haWidget" src="https://www.helloasso.com/associations/acceptess-t/collectes/fond-pour-la-creation-artistique-immersive-sexilio/widget-compteur" style="width: 350px; height: 450px; border: none;" sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe>

@@ -1,0 +1,10 @@
+# Latin American AI Legal Framework
+Research on the legal and ethical implications of generative AI in Latin America, with a focus on copyright, commercial use, content ownership, and data governance in education and open science. Developed in collaboration with Universidad La Gran Colombia and presented at XR Academia 2025.
+
+# XR Academia
+
+A Colombian research initiative that connects immersive technologies, artificial intelligence, education, art, and culture. XR Academia promotes open science and collaboration among researchers, educators, students, and institutions through VR, AR, mixed reality, and advanced digital tools.
+https://www.instagram.com/xracademia/
+
+# Justin Beaver Survivor
+An award-winning immersive experience designed to foster understanding and empathy toward beavers and their ecosystems through interactive storytelling. Developed through an international research collaboration, the project won the 2021 Laval Virtual Award in the Revolution #Research category.

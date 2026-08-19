@@ -1,0 +1,11 @@
+Menu:
+    Home (logo-ini-canvar.png)
+    Projects
+    residencies
+    research
+    
+
+
+Content:
+logo-ini-canvar.png
+awrds-canvar.png

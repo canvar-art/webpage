@@ -1,0 +1,37 @@
+/*
+  CANVAR GLOBAL THEME
+  -------------------
+  This file controls the visual language shared by every page.
+  Change these values to update the whole website without editing its layouts.
+*/
+
+:root {
+  /* Palette */
+  --ink: #070808;
+  --paper: #f2f4ef;
+  --mist: #b9ddf5;
+  --acid: #d7ff42;
+  --line: rgba(255, 255, 255, .18);
+  --muted: rgba(242, 244, 239, .64);
+
+  /* Typefaces */
+  --display: "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --body: Inter, "Helvetica Neue", Arial, sans-serif;
+
+  /* Global page spacing */
+  --pad: clamp(1rem, 3.3vw, 3.5rem);
+
+  /* Global type scale — edit these to resize every heading */
+  --type-page-title: clamp(3rem, 5vw, 5.25rem);
+  --type-project-title: clamp(2.8rem, 4.5vw, 4.8rem);
+  --type-section-title: clamp(2.4rem, 4vw, 4.2rem);
+  --type-content-title: clamp(2rem, 3.2vw, 3.5rem);
+  --type-feature-title: clamp(2.2rem, 3.5vw, 3.8rem);
+  --type-card-title: clamp(1.5rem, 2.2vw, 2.4rem);
+  --type-small-title: clamp(1.5rem, 2vw, 2.1rem);
+  --type-footer: clamp(1.5rem, 2vw, 3rem);
+  --type-body-large: clamp(1rem, 1.2vw, 1.15rem);
+
+  /* Mobile title scale */
+  --type-page-title-mobile: clamp(2.6rem, 9vw, 3.6rem);
+}
