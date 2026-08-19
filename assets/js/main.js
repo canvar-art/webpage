@@ -182,6 +182,24 @@ if (projectFooter) {
   projectFooter.append(heading, grid, home, footerRow);
 }
 
+let animationViewportWidth = window.innerWidth;
+let animationViewportHeight = window.innerHeight;
+const hasCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
+
+function refreshStableAnimationViewport() {
+  const widthChanged = Math.abs(window.innerWidth - animationViewportWidth) > 2;
+  if (!hasCoarsePointer || widthChanged) {
+    animationViewportWidth = window.innerWidth;
+    animationViewportHeight = window.innerHeight;
+  }
+}
+
+window.addEventListener('resize', refreshStableAnimationViewport);
+window.addEventListener('orientationchange', () => {
+  animationViewportWidth = window.innerWidth;
+  animationViewportHeight = window.innerHeight;
+});
+
 const condorStage = document.querySelector('.paramoverso-condor');
 const condorImage = condorStage?.querySelector('img');
 
@@ -201,7 +219,7 @@ if (condorStage && condorImage && !window.matchMedia('(prefers-reduced-motion: r
     const availableWidth = condorStage.clientWidth - horizontalPadding;
     const travel = Math.max(0, availableWidth - condorImage.getBoundingClientRect().width);
     const progress = Math.min(1, Math.max(0,
-      (window.innerHeight - stageRect.top) / (window.innerHeight + stageRect.height)
+      (animationViewportHeight - stageRect.top) / (animationViewportHeight + stageRect.height)
     ));
     const offset = (progress - .5) * travel;
     condorImage.style.transform = `translate3d(${offset}px, 0, 0) scaleX(${condorDirection})`;
@@ -236,7 +254,7 @@ if (separatorBirdStage && separatorBirdImage && !window.matchMedia('(prefers-red
     const availableWidth = separatorBirdStage.clientWidth - horizontalPadding;
     const travel = Math.max(0, availableWidth - separatorBirdImage.getBoundingClientRect().width);
     const progress = Math.min(1, Math.max(0,
-      (window.innerHeight - stageRect.top) / (window.innerHeight + stageRect.height)
+      (animationViewportHeight - stageRect.top) / (animationViewportHeight + stageRect.height)
     ));
     const offset = (.5 - progress) * travel;
     separatorBirdImage.style.transform = `translate3d(${offset}px, 0, 0) scaleX(${-separatorBirdDirection})`;
@@ -271,7 +289,7 @@ function setupBottomDecorator(selector, edge) {
     const imageWidth = image.offsetWidth;
     const pagePadding = parseFloat(getComputedStyle(stage).paddingLeft) || 0;
     const naturalLeft = figureRect.left + (figure.clientWidth - imageWidth) / 2;
-    const pinLine = window.innerHeight - imageHeight;
+    const pinLine = animationViewportHeight - imageHeight;
     const shouldPin = pinScrollY === undefined
       ? figureRect.top <= pinLine
       : window.scrollY >= pinScrollY;
@@ -301,12 +319,12 @@ function setupBottomDecorator(selector, edge) {
       requestAnimationFrame(() => image.classList.add('is-animated'));
     }
 
-    const travelDistance = Math.max(window.innerHeight * .35, 1);
+    const travelDistance = Math.max(animationViewportHeight * .35, 1);
     const progress = Math.min(1, Math.max(0,
       (window.scrollY - pinScrollY) / travelDistance
     ));
     const edgePosition = edge === 'right'
-      ? window.innerWidth - pagePadding - imageWidth
+      ? animationViewportWidth - pagePadding - imageWidth
       : pagePadding;
     const movement = (edgePosition - initialLeft) * progress;
     const horizontalPosition = initialLeft + movement;
