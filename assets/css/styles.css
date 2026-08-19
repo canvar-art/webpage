@@ -323,6 +323,10 @@ button { font: inherit; }
   grid-template-columns: 1fr;
   gap: clamp(1rem, 2vw, 2rem);
 }
+.project-page:not(.sexilio-page) .paramoverso-intro {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+}
 .project-page:not(.sexilio-page) :is(.project-split, .content-grid) > *,
 .project-page:not(.sexilio-page) :is(.prose, .video-load, .section-head, .character, .credit-item) {
   min-width: 0;
@@ -607,6 +611,7 @@ button { font: inherit; }
   .filter-status { width: 100%; margin: .5rem 0 0; }
   .project-list { grid-template-columns: 1fr; margin-bottom: 5rem; }
   .project-split { grid-template-columns: 1fr; }
+  .project-page:not(.sexilio-page) .paramoverso-intro { grid-template-columns: 1fr; }
   .project-media-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); overflow: visible; }
   .project-media-grid figure { height: var(--equal-grid-height, auto); }
   .people-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); overflow: visible; }
