@@ -181,3 +181,148 @@ if (projectFooter) {
 
   projectFooter.append(heading, grid, home, footerRow);
 }
+
+const condorStage = document.querySelector('.paramoverso-condor');
+const condorImage = condorStage?.querySelector('img');
+
+if (condorStage && condorImage && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  let condorFrame;
+  let condorLastScrollY = window.scrollY;
+  let condorDirection = 1;
+
+  const updateCondorPosition = () => {
+    condorFrame = undefined;
+    if (window.scrollY > condorLastScrollY) condorDirection = 1;
+    if (window.scrollY < condorLastScrollY) condorDirection = -1;
+    condorLastScrollY = window.scrollY;
+    const stageRect = condorStage.getBoundingClientRect();
+    const stageStyle = getComputedStyle(condorStage);
+    const horizontalPadding = parseFloat(stageStyle.paddingLeft) + parseFloat(stageStyle.paddingRight);
+    const availableWidth = condorStage.clientWidth - horizontalPadding;
+    const travel = Math.max(0, availableWidth - condorImage.getBoundingClientRect().width);
+    const progress = Math.min(1, Math.max(0,
+      (window.innerHeight - stageRect.top) / (window.innerHeight + stageRect.height)
+    ));
+    const offset = (progress - .5) * travel;
+    condorImage.style.transform = `translate3d(${offset}px, 0, 0) scaleX(${condorDirection})`;
+  };
+
+  const requestCondorUpdate = () => {
+    if (!condorFrame) condorFrame = requestAnimationFrame(updateCondorPosition);
+  };
+
+  window.addEventListener('scroll', requestCondorUpdate, { passive: true });
+  window.addEventListener('resize', requestCondorUpdate);
+  condorImage.addEventListener('load', requestCondorUpdate, { once: true });
+  requestCondorUpdate();
+}
+
+const separatorBirdStage = document.querySelector('.paramoverso-page .project-separator');
+const separatorBirdImage = separatorBirdStage?.querySelector('img');
+
+if (separatorBirdStage && separatorBirdImage && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  let separatorBirdFrame;
+  let separatorBirdLastScrollY = window.scrollY;
+  let separatorBirdDirection = 1;
+
+  const updateSeparatorBirdPosition = () => {
+    separatorBirdFrame = undefined;
+    if (window.scrollY > separatorBirdLastScrollY) separatorBirdDirection = 1;
+    if (window.scrollY < separatorBirdLastScrollY) separatorBirdDirection = -1;
+    separatorBirdLastScrollY = window.scrollY;
+    const stageRect = separatorBirdStage.getBoundingClientRect();
+    const stageStyle = getComputedStyle(separatorBirdStage);
+    const horizontalPadding = parseFloat(stageStyle.paddingLeft) + parseFloat(stageStyle.paddingRight);
+    const availableWidth = separatorBirdStage.clientWidth - horizontalPadding;
+    const travel = Math.max(0, availableWidth - separatorBirdImage.getBoundingClientRect().width);
+    const progress = Math.min(1, Math.max(0,
+      (window.innerHeight - stageRect.top) / (window.innerHeight + stageRect.height)
+    ));
+    const offset = (.5 - progress) * travel;
+    separatorBirdImage.style.transform = `translate3d(${offset}px, 0, 0) scaleX(${-separatorBirdDirection})`;
+  };
+
+  const requestSeparatorBirdUpdate = () => {
+    if (!separatorBirdFrame) separatorBirdFrame = requestAnimationFrame(updateSeparatorBirdPosition);
+  };
+
+  window.addEventListener('scroll', requestSeparatorBirdUpdate, { passive: true });
+  window.addEventListener('resize', requestSeparatorBirdUpdate);
+  separatorBirdImage.addEventListener('load', requestSeparatorBirdUpdate, { once: true });
+  requestSeparatorBirdUpdate();
+}
+
+function setupBottomDecorator(selector, edge) {
+  const figure = document.querySelector(selector);
+  const stage = figure?.closest('.paramoverso-story');
+  const image = figure?.querySelector('img');
+  const text = stage?.querySelector('.prose');
+
+  if (!stage || !image || !text || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  let animationFrame;
+  let pinScrollY;
+  let initialLeft;
+
+  const updatePosition = () => {
+    animationFrame = undefined;
+    const figureRect = figure.getBoundingClientRect();
+    const imageHeight = image.offsetHeight;
+    const imageWidth = image.offsetWidth;
+    const pagePadding = parseFloat(getComputedStyle(stage).paddingLeft) || 0;
+    const naturalLeft = figureRect.left + (figure.clientWidth - imageWidth) / 2;
+    const pinLine = window.innerHeight - imageHeight;
+    const shouldPin = pinScrollY === undefined
+      ? figureRect.top <= pinLine
+      : window.scrollY >= pinScrollY;
+
+    if (!shouldPin) {
+      image.classList.remove('is-fixed');
+      image.classList.remove('is-animated');
+      image.style.removeProperty('transform');
+      text.style.removeProperty('transform');
+      figure.style.removeProperty('min-height');
+      pinScrollY = undefined;
+      initialLeft = undefined;
+      return;
+    }
+
+    const isStarting = pinScrollY === undefined;
+    if (isStarting) {
+      pinScrollY = window.scrollY;
+      initialLeft = naturalLeft;
+    }
+
+    figure.style.minHeight = `${imageHeight}px`;
+    image.classList.add('is-fixed');
+
+    if (isStarting) {
+      image.style.transform = `translate3d(${initialLeft}px, 0, 0)`;
+      requestAnimationFrame(() => image.classList.add('is-animated'));
+    }
+
+    const travelDistance = Math.max(window.innerHeight * .35, 1);
+    const progress = Math.min(1, Math.max(0,
+      (window.scrollY - pinScrollY) / travelDistance
+    ));
+    const edgePosition = edge === 'right'
+      ? window.innerWidth - pagePadding - imageWidth
+      : pagePadding;
+    const movement = (edgePosition - initialLeft) * progress;
+    const horizontalPosition = initialLeft + movement;
+    image.style.transform = `translate3d(${horizontalPosition}px, 0, 0)`;
+    text.style.transform = `translate3d(${movement}px, 0, 0)`;
+  };
+
+  const requestUpdate = () => {
+    if (!animationFrame) animationFrame = requestAnimationFrame(updatePosition);
+  };
+
+  window.addEventListener('scroll', requestUpdate, { passive: true });
+  window.addEventListener('resize', requestUpdate);
+  image.addEventListener('load', requestUpdate, { once: true });
+  requestUpdate();
+}
+
+setupBottomDecorator('.paramoverso-bromelia', 'right');
+setupBottomDecorator('.paramoverso-frailejon', 'left');

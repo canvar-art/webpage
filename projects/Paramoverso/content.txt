@@ -1,28 +1,65 @@
-Paramoverso-hero-image
+# PARAMOVERSO
 
-virtual experience in the metaverse about the Paramos, aiming to promote protection and awareness about this unique environment's great biodiversity and resources.
-We promote awareness in young students and adults about the paramo and its biodiversity, which is only seen in the high mountains of equatorial areas. We will also promote direct actions to restore the biodiversity in these ecosystems.
+**[Hero image: Paramoverso-hero-image]**
 
-video: https://www.youtube.com/watch?v=sYNU_njyly0
+The páramo is more than a landscape. Found in the high mountains of equatorial regions, it is a living ecosystem capable of capturing carbon, transforming mist into water and sustaining an extraordinary diversity of plants and animals. Its rivers and lagoons supply water to countless communities and ecosystems throughout Colombia, making its protection essential for life far beyond the mountain.
 
-The páramos are places that harbor great biodiversity in both fauna and flora, which not only play a crucial role in capturing carbon dioxide from the planet but also in filtering the water that supplies countless ecosystems through rivers and lagoons distributed throughout Colombia. Despite their beauty and natural wealth, there are many risk factors such as fires, deforestation, mining, and climate change that compel us to focus on the conservation of the páramos and the sustainable use of water. For this reason, we want to offer an accessible, immersive audiovisual experience that encourages more people to take action for the protection of Colombia's páramos.
+---
 
-- separator using separator-bird image -
+**[Two-column section: Bromeliad image on the left / Text on the right]**
 
-# Multiplatform Vr Experience
+Paramoverso is an educational and immersive experience combining mixed reality and virtual reality. Created for young people and adults, it invites visitors to discover how the páramo works, understand its importance and recognize the threats it faces—from fires and deforestation to mining and climate change.
 
-Paramoverso is a multiplatform experience hosted on Spatial, featuring interactive missions inviting users to explore steppes filled with frailejones, grasses, mosses, bears, ocelots, birds, and insects. Travel to the Colombian mountains to discover the biodiversity inhabiting the páramos of each mountain range and to understand the threats endangering these ecosystems.
+---
 
-VR - AR - Mobile - Tablet
+**[Two-column section: Text on the left / Hummingbird image on the right]**
 
-gameplay-image.png
+The journey begins in mixed reality, as elements of the páramo emerge within the visitor’s physical surroundings. From there, portals lead into virtual reality, where visitors explore the forest, the microscopic world of insects and the high mountains. Each environment reveals the connections between water, plants, animals and the communities that depend on them.
 
-donate link https://artizen.fund/index/p/paramoverso
+---
 
-## Support and participation in:
-support-logos image
+**[Two-column section: Frailejón image on the left / Text on the right]**
 
-## coproduced with:
+As the journey progresses, visitors acquire abilities inspired by the ecosystem: capturing mist, preserving water and spreading seeds. These abilities become tools for action. Visitors must extinguish fires, heal frailejones and help restore life to a threatened landscape.
 
-sensopia-logo cetreal-logo
+---
+
+**[Full-width text followed by the condor image]**
+
+As a co-producer, CANVAR combines immersive storytelling, interaction design and technology to transform scientific and ecological knowledge into a living experience. Rather than simply explaining the páramo, Paramoverso allows visitors to understand it through exploration, discovery and action.
+
+**[Full-width condor image]**
+
+---
+
+Through this journey, Paramoverso promotes environmental awareness and encourages people to participate in the protection and restoration of Colombia’s páramos.
+
+**[Embedded video: https://www.youtube.com/watch?v=sYNU_njyly0]**
+
+---
+
+**[Visual separator: separator-bird image]**
+
+## A Multiplatform Immersive Experience
+
+Paramoverso can be experienced on the web, mobile devices, tablets and VR headsets. Through interactive missions, visitors explore landscapes filled with frailejones, grasses, mosses, bears, ocelots, birds and insects while discovering the relationships that sustain the páramo.
+
+**VR · Web · Mobile · Tablet**
+
+**[Full-width gameplay-image.png]**
+
+Support Paramoverso and help us continue creating new ways to connect people with the páramo.
+
+**[Button: Support Paramoverso]**
+https://artizen.fund/index/p/paramoverso
+
+---
+
+## With the Support and Participation of
+
+**[support-logos image]**
+
+## Co-produced by
+
+**[CANVAR logo · Sensopía logo · Cetreal logo]**
 

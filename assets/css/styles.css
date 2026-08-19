@@ -323,9 +323,100 @@ button { font: inherit; }
   grid-template-columns: 1fr;
   gap: clamp(1rem, 2vw, 2rem);
 }
-.project-page:not(.sexilio-page) .paramoverso-intro {
+.paramoverso-page .paramoverso-title {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+.paramoverso-page .paramoverso-intro .prose,
+.paramoverso-page .paramoverso-full-text .prose,
+.paramoverso-page .paramoverso-support .prose,
+.paramoverso-page .paramoverso-multiplatform .prose {
+  margin-inline: auto;
+}
+.paramoverso-page .paramoverso-story {
+  display: grid;
+  width: min(100%, 70rem);
+  margin-inline: auto;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.25rem, 3vw, 3rem);
   align-items: center;
+}
+.paramoverso-page .paramoverso-story > * { min-width: 0; }
+.paramoverso-page .paramoverso-story > .prose {
+  transition: transform .22s ease-out;
+  will-change: transform;
+}
+.paramoverso-page .paramoverso-illustration,
+.paramoverso-page .paramoverso-condor {
+  margin: 0;
+  background: transparent;
+}
+.paramoverso-page .paramoverso-illustration img,
+.paramoverso-page .paramoverso-condor img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: min(26vh, 13rem);
+  margin-inline: auto;
+  object-fit: contain;
+}
+.paramoverso-page :is(.paramoverso-frailejon, .paramoverso-bromelia) img { will-change: transform; }
+.paramoverso-page :is(.paramoverso-frailejon, .paramoverso-bromelia) img.is-fixed {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 10;
+  margin: 0;
+  pointer-events: none;
+}
+.paramoverso-page :is(.paramoverso-frailejon, .paramoverso-bromelia) img.is-fixed.is-animated {
+  transition: transform .22s ease-out;
+}
+.paramoverso-page .paramoverso-condor {
+  width: 100%;
+  padding-inline: var(--pad);
+  overflow: hidden;
+}
+.paramoverso-page .paramoverso-condor img {
+  max-height: min(30vh, 15rem);
+  will-change: transform;
+}
+.paramoverso-page .project-separator { overflow: hidden; }
+.paramoverso-page .project-separator img {
+  transform: scaleX(-1);
+  transform-origin: center;
+  will-change: transform;
+}
+.paramoverso-page .paramoverso-gameplay {
+  width: min(41%, 36rem);
+  margin-inline: auto;
+}
+.paramoverso-page .paramoverso-multiplatform .section-head,
+.paramoverso-page .paramoverso-partners .section-head {
+  display: block;
+  text-align: center;
+}
+.paramoverso-page .platform-list { justify-content: center; }
+.paramoverso-page .paramoverso-coproducers a {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+@media (min-width: 851px) {
+  .paramoverso-page .section:not(.paramoverso-story) > :is(.prose, .section-head, .video-player, .partner-strip, .logo-grid, .platform-list) {
+    width: 70%;
+    margin-inline: auto;
+  }
 }
 .project-page:not(.sexilio-page) :is(.project-split, .content-grid) > *,
 .project-page:not(.sexilio-page) :is(.prose, .video-load, .section-head, .character, .credit-item) {
@@ -611,7 +702,10 @@ button { font: inherit; }
   .filter-status { width: 100%; margin: .5rem 0 0; }
   .project-list { grid-template-columns: 1fr; margin-bottom: 5rem; }
   .project-split { grid-template-columns: 1fr; }
-  .project-page:not(.sexilio-page) .paramoverso-intro { grid-template-columns: 1fr; }
+  .paramoverso-page .paramoverso-story { grid-template-columns: 1fr; }
+  .paramoverso-page .paramoverso-illustration img { max-height: min(24vh, 11rem); }
+  .paramoverso-page .paramoverso-condor img { max-height: min(26vh, 12.5rem); }
+  .paramoverso-page .paramoverso-gameplay { width: 50%; }
   .project-media-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); overflow: visible; }
   .project-media-grid figure { height: var(--equal-grid-height, auto); }
   .people-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); overflow: visible; }
