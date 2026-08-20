@@ -164,6 +164,7 @@ button { font: inherit; }
 .project-media-grid figure { flex: 1 1 0; min-width: 0; height: var(--equal-grid-height, auto); margin: 0; background: #111; }
 .project-media-grid img { width: 100%; height: var(--equal-grid-height, auto); object-fit: contain; }
 .people-grid { display: flex; width: 100%; gap: 1px; align-items: stretch; overflow: hidden; background: var(--line); }
+.people-grid.lde-collaborations { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); overflow: visible; }
 .person-card { flex: 1 1 0; min-width: 0; height: var(--equal-grid-height, auto); position: relative; margin: 0; overflow: hidden; background: #111; }
 .person-card img { width: 100%; height: var(--equal-grid-height, auto); object-fit: contain; }
 .person-card figcaption { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 1rem; color: #fff; background: rgba(0,0,0,.68); text-align: center; text-transform: uppercase; letter-spacing: .08em; opacity: 0; transition: opacity .25s ease; }
@@ -220,6 +221,13 @@ button { font: inherit; }
 .logo-row { display: flex; justify-content: center; align-items: center; gap: 5vw; padding: 3rem var(--pad); background: transparent; }
 .logo-row img { flex: 0 1 260px; min-width: 0; max-width: min(260px, 36vw); max-height: 130px; object-fit: contain; }
 
+/* Shared project-page proportions */
+.project-page {
+  --project-standalone-width: 60%;
+  --project-split-width: 80%;
+  --project-longer-width: 100%;
+}
+
 /* SEXILIO */
 .sexilio-page {
   --hero-image-height: 18rem;
@@ -230,7 +238,7 @@ button { font: inherit; }
 }
 .sexilio-banner { padding-top: 5.25rem; border-bottom: 1px solid var(--line); background: #111; }
 .sexilio-banner img { width: 100%; height: auto; }
-.sexilio-opening, .sexilio-story, .sexilio-team, .sexilio-support { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1.5rem, 4vw, 4rem); align-items: center; }
+.sexilio-opening, .sexilio-story, .sexilio-support { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1.5rem, 4vw, 4rem); align-items: center; }
 .sexilio-page :is(.sexilio-opening, .sexilio-story, .sexilio-support) {
   width: var(--split-section-width);
   margin-inline: auto;
@@ -259,7 +267,8 @@ button { font: inherit; }
   align-items: flex-start;
   justify-content: center;
   gap: clamp(1rem, 2.5vw, 2.25rem);
-  max-width: 64rem;
+  width: 100%;
+  max-width: none;
   margin-inline: auto;
 }
 .sexilio-page .sexilio-team .credit-item {
@@ -299,19 +308,19 @@ button { font: inherit; }
 
 /* Project media is intentionally compact on larger screens. */
 .project-page .image-hero {
-  width: 60%;
+  width: var(--project-standalone-width);
   height: min(57svh, 585px);
   margin-inline: auto;
 }
 .project-page :is(.video-player, .wide-media, .project-media-grid, .people-grid, .logo-grid, .character-grid, .gallery, .partner-strip, .sexilio-grid) {
-  width: 60%;
+  width: var(--project-standalone-width);
   margin-inline: auto;
 }
 .project-page :is(.sexilio-banner img, .sexilio-feature-image, .sexilio-widget) {
-  width: 60%;
+  width: var(--project-standalone-width);
   margin-inline: auto;
 }
-.project-page :is(.project-split, .content-grid, .sexilio-opening, .sexilio-story, .sexilio-team, .sexilio-support)
+.project-page :is(.project-split, .content-grid, .sexilio-opening, .sexilio-story, .sexilio-support)
   :is(.image-hero, .video-player, .wide-media, .project-media-grid, .people-grid, .logo-grid, .character-grid, .gallery, .partner-strip, .sexilio-grid, .sexilio-feature-image, .sexilio-widget) {
   width: 100%;
   margin-inline: 0;
@@ -340,6 +349,44 @@ button { font: inherit; }
 .paramoverso-page .paramoverso-multiplatform .prose {
   margin-inline: auto;
 }
+.project-page .project-facts {
+  width: min(var(--project-standalone-width), 48rem);
+  margin: .25rem auto clamp(1rem, 2vw, 1.75rem);
+  border-block: 1px solid rgba(255, 255, 255, .12);
+}
+.project-page .project-facts dl {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0;
+}
+.project-page .project-facts dl > div {
+  min-width: 0;
+  padding: .7rem .8rem .75rem;
+  border-right: 1px solid rgba(255, 255, 255, .08);
+}
+.project-page .project-facts dl > div:nth-child(3n) { border-right: 0; }
+.project-page .project-facts dl > div:nth-child(-n + 3) {
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+.project-page .project-facts--five dl > div:last-child {
+  grid-column: span 2;
+  border-right: 0;
+}
+.project-page .project-facts dt {
+  margin: 0 0 .2rem;
+  color: var(--muted);
+  font-size: .56rem;
+  line-height: 1.2;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+.project-page .project-facts dd {
+  margin: 0;
+  color: rgba(242, 244, 239, .82);
+  font-size: clamp(.68rem, .75vw, .78rem);
+  line-height: 1.35;
+}
+.project-page .project-facts dd.is-missing { color: rgba(242, 244, 239, .34); }
 .paramoverso-page .paramoverso-story {
   display: grid;
   width: min(100%, 70rem);
@@ -416,7 +463,18 @@ button { font: inherit; }
 }
 @media (min-width: 851px) {
   .paramoverso-page .section:not(.paramoverso-story) > :is(.prose, .section-head, .video-player, .partner-strip, .logo-grid, .platform-list) {
-    width: 70%;
+    width: 100%;
+    margin-inline: auto;
+  }
+  .project-page .section:not(.project-split):not(.content-grid):not(.qdlo-intro):not(.paramoverso-story):not(.sexilio-opening):not(.sexilio-story):not(.sexilio-support)
+    > :is(.prose, .section-head, .credit-grid, .platform-list, .sexilio-team) {
+    width: 100%;
+    margin-inline: auto;
+  }
+  .sexilio-page .sexilio-crowdfunding > div {
+    flex: 1 1 100%;
+    width: 100%;
+    max-width: 100%;
     margin-inline: auto;
   }
 }
@@ -446,7 +504,9 @@ button { font: inherit; }
 
 /* SEXILIO page-specific proportions */
 .project-page main { text-align: center; }
-.project-page .section { padding-block: clamp(.85rem, 1.4vw, 1.35rem); }
+.project-page .section {
+  padding-block: clamp(.85rem, 1.4vw, 1.35rem);
+}
 .project-page main :is(.prose, .section-title, .project-title, .project-deck) { margin-inline: auto; }
 .project-page main :is(h1, h2, h3) {
   font-family: var(--display);
@@ -555,20 +615,31 @@ button { font: inherit; }
   margin-top: clamp(1rem, 2vw, 1.75rem);
 }
 .project-page .qdlo-partners {
-  width: 100%;
-  margin-inline: 0;
+  width: var(--project-standalone-width);
+  margin-inline: auto;
 }
 .project-page .qdlo-partners img {
   width: 100%;
   max-height: none;
   height: auto;
 }
+#continuum-credits .credit-grid {
+  width: 100%;
+  max-width: none;
+}
+#continuum2-grid .project-media-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 100%;
+  max-width: none;
+  overflow: visible;
+}
 .project-page .sexilio-banner img { width: 100%; }
 .project-page .sexilio-story { align-items: stretch; }
 .project-page .sexilio-opening { align-items: center; }
 .project-page .sexilio-opening .sexilio-feature-image {
   position: relative;
-  width: 100%;
+  width: 90%;
   height: var(--hero-image-height);
   overflow: hidden;
 }
@@ -685,6 +756,34 @@ button { font: inherit; }
 .reveal.is-visible { opacity: 1; transform: none; }
 .project-page:not(.sexilio-page) .reveal { opacity: 1; transform: none; }
 
+@media (min-width: 851px) {
+  .project-page .section {
+    width: 100%;
+    max-width: var(--project-standalone-width);
+    margin-inline: auto;
+  }
+  .project-page .section:is(.qdlo-intro, .paramoverso-story, .sexilio-opening, .sexilio-story, .sexilio-support),
+  .project-page .section:has(> :is(.project-split, .content-grid, .character-grid--stacked)) {
+    max-width: var(--project-split-width);
+  }
+  .project-page .section.section-longer {
+    max-width: var(--project-longer-width);
+  }
+  .project-page.sexilio-page .sexilio-team-section {
+    max-width: 70%;
+  }
+  .project-page .section > :is(.project-split, .content-grid, .prose, .section-head, .video-player, .wide-media, .project-media-grid, .people-grid, .credit-grid, .logo-grid, .character-grid, .gallery, .partner-strip, .sexilio-grid, .platform-list, .sexilio-team) {
+    width: 100%;
+    max-width: 100%;
+    margin-inline: auto;
+  }
+  .sexilio-page .sexilio-crowdfunding > div {
+    flex: 1 1 100%;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
 @media (max-width: 850px) {
   .site-header { grid-template-columns: 1fr auto; mix-blend-mode: normal; background: rgba(7,8,8,.92); }
   .header-note { display: none; }
@@ -705,6 +804,24 @@ button { font: inherit; }
   .project-list { grid-template-columns: 1fr; margin-bottom: 5rem; }
   .project-split { grid-template-columns: 1fr; }
   .paramoverso-page .paramoverso-story { grid-template-columns: 1fr; }
+  .project-page .project-facts {
+    width: calc(100% - 2 * var(--pad));
+  }
+  .project-page .project-facts dl { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .project-page .project-facts dl > div,
+  .project-page .project-facts dl > div:nth-child(3n) {
+    border-right: 1px solid rgba(255, 255, 255, .08);
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+  }
+  .project-page .project-facts dl > div:nth-child(2n) { border-right: 0; }
+  .project-page .project-facts dl > div:nth-last-child(-n + 2) { border-bottom: 0; }
+  .project-page .project-facts--five dl > div:nth-last-child(2) {
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+  }
+  .project-page .project-facts--five dl > div:last-child {
+    grid-column: span 2;
+    border-right: 0;
+  }
   .paramoverso-page .paramoverso-illustration img {
     max-height: 11rem;
     max-height: min(24svh, 11rem);
@@ -717,6 +834,8 @@ button { font: inherit; }
   .project-media-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); overflow: visible; }
   .project-media-grid figure { height: var(--equal-grid-height, auto); }
   .people-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); overflow: visible; }
+  .people-grid.lde-collaborations { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #continuum2-grid .project-media-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .credit-grid { display: grid; grid-template-columns: 1fr; overflow: visible; }
   .logo-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; }
   .logo-grid figure { padding: .75rem; }
@@ -741,7 +860,7 @@ button { font: inherit; }
   .character { grid-template-columns: 1fr; }
   .gallery { gap: .75rem; }
   .gallery figure { grid-column: span 12 !important; }
-  .sexilio-opening, .sexilio-story, .sexilio-team, .sexilio-support { grid-template-columns: 1fr; }
+  .sexilio-opening, .sexilio-story, .sexilio-support { grid-template-columns: 1fr; }
   .sexilio-page :is(.sexilio-opening, .sexilio-story, .sexilio-support) { width: 100%; }
   .sexilio-crowdfunding { align-items: flex-start; flex-direction: column; }
   .sexilio-grid--three, .sexilio-grid--two, .sexilio-credits { grid-template-columns: 1fr; }
