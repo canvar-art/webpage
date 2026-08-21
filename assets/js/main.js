@@ -59,6 +59,15 @@ filters.forEach((button) => button.addEventListener('click', () => {
 
 document.querySelectorAll('[data-year]').forEach((node) => { node.textContent = new Date().getFullYear(); });
 
+document.querySelectorAll('[data-contact-local][data-contact-domain]').forEach((link) => {
+  link.addEventListener('click', (event) => {
+    event.preventDefault();
+    const local = link.dataset.contactLocal.split('').reverse().join('');
+    const domain = link.dataset.contactDomain.split('').reverse().join('').replace(' ', '');
+    window.location.href = 'mailto:' + local + '@' + domain;
+  });
+});
+
 document.querySelectorAll('.video-player').forEach((player) => {
   const button = player.querySelector('.video-load');
   button?.addEventListener('click', () => {
