@@ -616,6 +616,15 @@ button { font: inherit; }
   object-fit: contain;
   justify-self: center;
 }
+.qdlo-scroll-model {
+  display: block;
+  width: 100%;
+  height: min(65svh, 32rem);
+  min-height: 22rem;
+  justify-self: center;
+  background: transparent;
+  --poster-color: transparent;
+}
 .project-page .qdlo-video {
   margin-top: clamp(1.5rem, 3vw, 3rem);
 }
@@ -638,6 +647,9 @@ button { font: inherit; }
 .project-page .qdlo-partners {
   width: var(--project-standalone-width);
   margin-inline: auto;
+  overflow: hidden;
+  background: rgba(115, 120, 115, .72);
+  border-radius: clamp(.8rem, 1.5vw, 1.25rem);
 }
 .project-page .qdlo-partners img {
   width: 100%;
@@ -903,6 +915,10 @@ button { font: inherit; }
     gap: 1.5rem;
   }
   .project-page .character-grid--stacked .character img { height: auto; }
+  .qdlo-scroll-model {
+    height: min(58svh, 28rem);
+    min-height: 20rem;
+  }
   .project-page .qdlo-intro {
     grid-template-columns: minmax(0, 1fr);
     width: 100%;

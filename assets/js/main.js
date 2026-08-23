@@ -68,6 +68,36 @@ document.querySelectorAll('[data-contact-local][data-contact-domain]').forEach((
   });
 });
 
+const scrollRotatingModels = [...document.querySelectorAll('[data-scroll-rotate]')];
+
+if (scrollRotatingModels.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  let modelRotationFrame = 0;
+
+  const updateModelRotation = () => {
+    modelRotationFrame = 0;
+    const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+
+    scrollRotatingModels.forEach((model) => {
+      const bounds = model.getBoundingClientRect();
+      const progress = Math.max(0, Math.min(1, (viewportHeight - bounds.top) / (viewportHeight + bounds.height)));
+
+      if (typeof model.resetTurntableRotation === 'function') {
+        model.resetTurntableRotation(progress * Math.PI * 2);
+      }
+    });
+  };
+
+  const requestModelRotation = () => {
+    if (!modelRotationFrame) modelRotationFrame = requestAnimationFrame(updateModelRotation);
+  };
+
+  customElements.whenDefined('model-viewer').then(() => {
+    updateModelRotation();
+    window.addEventListener('scroll', requestModelRotation, { passive: true });
+    window.addEventListener('resize', requestModelRotation);
+  });
+}
+
 document.querySelectorAll('.video-player').forEach((player) => {
   const button = player.querySelector('.video-load');
   button?.addEventListener('click', () => {
