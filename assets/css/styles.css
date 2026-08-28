@@ -641,8 +641,23 @@ button { font: inherit; }
   width: 100%;
   margin: 0;
 }
-.project-page .qdlo-donate {
+.qdlo-donate-row {
+  display: flex;
+  grid-column: 1 / -1;
+  justify-content: center;
+  width: 100%;
   margin-top: clamp(1rem, 2vw, 1.75rem);
+}
+.qdlo-reference {
+  display: inline-block;
+  margin-top: .75rem;
+  color: var(--paper);
+  font-size: .7rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-decoration-color: var(--acid);
+  text-underline-offset: .3em;
 }
 .project-page .qdlo-partners {
   width: var(--project-standalone-width);
@@ -655,6 +670,77 @@ button { font: inherit; }
   width: 100%;
   max-height: none;
   height: auto;
+}
+.qdlo-page .qdlo-context .prose,
+.qdlo-page .qdlo-approach .prose,
+.qdlo-page .qdlo-support .prose { margin-inline: auto; }
+.qdlo-page .qdlo-three-parts {
+  width: 100%;
+  max-width: none;
+}
+.qdlo-parts-table-wrap {
+  width: 75vw;
+  max-width: none;
+  margin-left: calc(50% - 37.5vw);
+  margin-right: 0;
+  overflow-x: auto;
+}
+.qdlo-parts-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  text-align: left;
+}
+.qdlo-parts-table td {
+  width: 33.333%;
+  padding: clamp(1.25rem, 2.5vw, 2.5rem);
+  vertical-align: top;
+  border: 1px solid var(--line);
+}
+.qdlo-parts-table h3 { margin: 1.25rem 0 1.5rem; }
+.qdlo-parts-table p {
+  color: rgba(242, 244, 239, .82);
+  font-size: clamp(.82rem, 1vw, 1rem);
+  line-height: 1.55;
+}
+.qdlo-part-number {
+  color: var(--acid);
+  font-size: .65rem;
+  letter-spacing: .14em;
+}
+.qdlo-parts-table .qdlo-question {
+  margin-top: 1.5rem;
+  color: var(--paper);
+  font-style: italic;
+}
+.qdlo-page .character-grid--stacked .character:first-child model-viewer { order: 2; }
+.qdlo-page .qdlo-collaborators { padding-bottom: clamp(2rem, 4vw, 4rem); }
+.qdlo-collaborators-intro {
+  padding-bottom: 2rem;
+}
+.qdlo-collaborators-intro p {
+  max-width: 52rem;
+  margin: 1.25rem auto 0;
+  color: rgba(242, 244, 239, .82);
+  font-size: var(--type-body-large);
+}
+.qdlo-partner-names {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .5rem 1.5rem;
+  margin: 1.25rem auto 0;
+  padding: 0;
+  list-style: none;
+  color: var(--muted);
+  font-size: .68rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.qdlo-page .qdlo-support {
+  margin-top: clamp(1rem, 3vw, 3rem);
+  padding-block: clamp(3rem, 6vw, 6rem);
+  border-top: 1px solid var(--line);
 }
 #continuum-credits .credit-grid {
   width: 100%;
@@ -924,6 +1010,16 @@ button { font: inherit; }
     width: 100%;
     gap: 1.5rem;
   }
+  .qdlo-parts-table,
+  .qdlo-parts-table tbody,
+  .qdlo-parts-table tr,
+  .qdlo-parts-table td { display: block; width: 100%; }
+  .qdlo-parts-table-wrap {
+    width: 100%;
+    margin-inline: 0;
+  }
+  .qdlo-parts-table td + td { border-top: 0; }
+  .qdlo-page .character-grid--stacked .character:first-child model-viewer { order: 0; }
   .project-page .sexilio-opening .sexilio-feature-image { height: auto; aspect-ratio: 3 / 2; }
   .project-page .sexilio-story .video-player { aspect-ratio: 16 / 9; }
   .project-recommendations-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
