@@ -737,6 +737,11 @@ button { font: inherit; }
   letter-spacing: .1em;
   text-transform: uppercase;
 }
+.qdlo-partner-names a {
+  text-decoration: underline;
+  text-decoration-color: var(--acid);
+  text-underline-offset: .25em;
+}
 .qdlo-page .qdlo-support {
   margin-top: clamp(1rem, 3vw, 3rem);
   padding-block: clamp(3rem, 6vw, 6rem);
