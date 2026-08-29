@@ -6,14 +6,14 @@ A dependency-free static site built from the supplied content map, text files an
 
 - `index.html` — home
 - `projects.html` — filterable project index
-- `project-qdlo.html` — ¿Quién dio la orden?
-- `project-sexilio.html` — Sexilio visual archive
-- `project-paramoverso.html` — Paramoverso
-- `project-camino-cimarron.html` — El Camino Cimarrón
-- `project-colombia-resiste.html` — Colombia Resiste 360
-- `project-continuum-vr.html` — Continuum VR
-- `project-les-danses-extatiques.html` — Les Danses Extatiques
-- `project-mountain-museum.html` — Mountain Museum
+- `qdlo.html` — ¿Quién dio la orden?
+- `sexilio.html` — Sexilio visual archive
+- `paramoverso.html` — Paramoverso
+- `camino-cimarron.html` — El Camino Cimarrón
+- `colombia-resiste.html` — Colombia Resiste 360
+- `continuum-vr.html` — Continuum VR
+- `les-danses-extatiques.html` — Les Danses Extatiques
+- `mountain-museum.html` — Mountain Museum
 - `research.html` — research index
 - `residencies.html` — Artivistas, Le Lab and the 2025 cohort
 

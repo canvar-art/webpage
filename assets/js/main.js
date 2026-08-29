@@ -161,14 +161,14 @@ const projectFooter = document.querySelector('.project-page .site-footer');
 
 if (projectFooter) {
   const projects = [
-    { page: 'project-qdlo.html', title: '¿Quién dio la orden?', image: 'assets/images/projects/index/quien-dio-la-orden-generated.png' },
-    { page: 'project-sexilio.html', title: 'SEXILIO', image: 'assets/images/projects/index/sexilio.jpeg' },
-    { page: 'project-paramoverso.html', title: 'Paramoverso', image: 'assets/images/projects/index/paramoverso.jpeg' },
-    { page: 'project-camino-cimarron.html', title: 'El Camino Cimarrón', image: 'assets/images/projects/index/camino-cimarron.png' },
-    { page: 'project-colombia-resiste.html', title: 'Colombia Resiste 360', image: 'assets/images/projects/index/colombia-resiste-360.png' },
-    { page: 'project-continuum-vr.html', title: 'Continuum VR', image: 'assets/images/projects/index/continuum-vr.png' },
-    { page: 'project-les-danses-extatiques.html', title: 'Les Danses Extatiques', image: 'assets/images/projects/index/les-danses-extatiques.jpg' },
-    { page: 'project-mountain-museum.html', title: 'Mountain Museum', image: 'assets/images/projects/index/mountain-museum.png' }
+    { page: 'qdlo.html', title: '¿Quién dio la orden?', image: 'assets/images/projects/index/quien-dio-la-orden-generated.png' },
+    { page: 'sexilio.html', title: 'SEXILIO', image: 'assets/images/projects/index/sexilio.jpeg' },
+    { page: 'paramoverso.html', title: 'Paramoverso', image: 'assets/images/projects/index/paramoverso.jpeg' },
+    { page: 'camino-cimarron.html', title: 'El Camino Cimarrón', image: 'assets/images/projects/index/camino-cimarron.png' },
+    { page: 'colombia-resiste.html', title: 'Colombia Resiste 360', image: 'assets/images/projects/index/colombia-resiste-360.png' },
+    { page: 'continuum-vr.html', title: 'Continuum VR', image: 'assets/images/projects/index/continuum-vr.png' },
+    { page: 'les-danses-extatiques.html', title: 'Les Danses Extatiques', image: 'assets/images/projects/index/les-danses-extatiques.jpg' },
+    { page: 'mountain-museum.html', title: 'Mountain Museum', image: 'assets/images/projects/index/mountain-museum.png' }
   ];
   const currentPage = decodeURIComponent(window.location.pathname).split('/').pop().toLowerCase();
   const currentIndex = projects.findIndex((project) => project.page === currentPage);
